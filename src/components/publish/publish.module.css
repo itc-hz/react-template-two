@@ -1,0 +1,29 @@
+html {
+  --ids-primary-theme: #FFAE36;
+}
+
+.cycle-play-form {
+  padding: 20px 40px 0 40px;
+}
+.cycle-play-form .week-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+.cycle-play-form .week-list .week-item {
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #717e84;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+.cycle-play-form .week-list .week-item.active {
+  background: var(--ids-primary-theme);
+}
+
+/*# sourceMappingURL=publish.module.css.map */

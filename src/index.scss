@@ -1,0 +1,135 @@
+@import "./assets/css/variable";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:global {
+  #app {
+    width: 100%;
+    height: 100%;
+    background: $theme-bg;
+
+    .app-wrap {
+      height: 100%;
+      .ant-spin-container {
+        height: 100%;
+      }
+    }
+
+    .ant-card-extra {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .common-custom-form {
+      padding: 20px 40px 0 40px;
+    }
+
+    .lang-change-wrap {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      z-index: 999;
+
+      & + .lang-change-wrap {
+        left: 150px;
+        bottom: 35px;
+      }
+    }
+  }
+}
+
+:global(.mr-15) {
+  margin-right: 15px;
+}
+
+:global(.ant-btn):not(:global(.ant-btn-circle)), :global(.ant-input-search) {
+  border-radius: 6px;
+}
+
+:global(.ant-btn.ant-btn-yellow) {
+  background: $active-bg;
+  border-color: $active-bg;
+
+  &:hover, &:focus {
+    background: $active-bg-opacity;
+    border-color: $active-bg-opacity;
+  }
+}
+
+:global(.ant-btn.ant-btn-orange) {
+  background: $orange-bg;
+  border-color: $orange-bg;
+
+  &:hover, &:focus {
+    background: $orange-bg-opacity;
+    border-color: $orange-bg-opacity;
+  }
+}
+
+:global(.ant-btn.ant-btn-grey) {
+  background: $grey-bg;
+  border-color: $grey-bg;
+
+  &:hover, &:focus {
+    background: $grey-bg-opacity;
+    border-color: $grey-bg-opacity;
+  }
+}
+
+:global(.common-popover-list) {
+  margin: 0;
+  padding: 0;
+  width: 90px;
+  background: #fff;
+  box-shadow: 0px 2px 15px 0px rgba(13, 37, 61, 0.28);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  :global(.common-popover-item) {
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    line-height: 40px;
+    font-size: $n-font-size;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+      background: $active-bg-opacity;
+      color: #fff;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(223, 230, 235, 1);
+    }
+  }
+}
+
+:global(.w100) {
+  width: 100%;
+}
+
+:global {
+  .ant-tree-checkbox {
+    .ant-tree-checkbox-inner {
+      border-radius: 2px;
+    }
+  }
+
+}
+
+:global(.ant-dropdown) {
+  z-index: 98;
+}
+
+:global(.show-number-step) {
+  & > :global(.ant-input-number-handler-wrap) {
+    opacity: 1;
+  }
+}
