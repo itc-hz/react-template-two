@@ -1,9 +1,9 @@
 {
-  "name": "ids-saas",
-  "version": "1.0.0",
-  "description": "react ids saas",
+  "name": "{{projectName}}",
+  "version": "{{projectVersion}}",
   "main": "index.js",
-  "author": "shl",
+  "description": "{{projectDescription}}",
+  "author": "{{projectAuthor}}",
   "license": "MIT",
   "private": true,
   "scripts": {
