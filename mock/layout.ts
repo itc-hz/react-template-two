@@ -19,16 +19,3 @@ export function getList() {
         }
     })
 }
-
-export function getGroup() {
-    return Mock.mock({
-        'code': 0,
-        'message': '',
-        'data|10': [
-            {
-                'id': '@increment',
-                'name': '@first'
-            }
-        ]
-    })
-}

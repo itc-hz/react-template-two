@@ -33,7 +33,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                include: [path.resolve(__dirname, '../node_modules/antd'), path.resolve(__dirname, '../src'), path.resolve(__dirname, '../node_modules/braft-editor')],
+                include: [path.resolve(__dirname, '../src'), path.resolve(__dirname, '../node_modules/braft-editor')],
                 // exclude: /(node_modules)/,
                 use: [
                     process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
