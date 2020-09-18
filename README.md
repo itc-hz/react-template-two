@@ -3,7 +3,7 @@
 > custom theme and international language config, use css-module
 
 #### About custom theme
-this project use `antd-theme-generator`, you can read `{prjectName}/color.js`.
+this project use `antd-theme-generator`, you can read `{projectName}/color.js`.
 change theme need use `less.min.js`, do not remove it unless you know what you are
 
 ```bash
@@ -20,7 +20,7 @@ yarn run build
 ```
 
  #### simple route config like vue-router! 
- Also can use React.lazy import you commponents, then `{prjectName}/src/routers/index.tsx` will read it and use `<React.Suspense />` to make code-spilt, more detail in `{prjectName}/src/pageModel/common/index.tsx`
+ Also can use React.lazy import you components, then `{projectName}/src/routers/index.tsx` will read it and use `<React.Suspense />` to make code-spilt, more detail in `{projectName}/src/pageModel/common/index.tsx`
 ``` js
 export const routesConfig: RouteConfigDeclaration[] = [
     {
