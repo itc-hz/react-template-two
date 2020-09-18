@@ -32,6 +32,10 @@
           background: $active-bg;
           color: $active-bg-color;
         }
+        .sub-menu-item {
+          max-height: 500px;
+          opacity: 1;
+        }
       }
 
       .menu-item {
@@ -54,6 +58,26 @@
         &.active {
           background: $active-bg;
           color: $active-bg-color;
+        }
+      }
+
+      .sub-menu-item {
+        transition: all .6s;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &-link {
+          padding: 20px 0;
+          text-align: center;
+          font-size: $nl-font-size;
+          color: rgb(51, 51, 51);
+
+          &.active-link {
+            color: $active-bg;
+          }
         }
       }
     }

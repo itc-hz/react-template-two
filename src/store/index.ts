@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {createStore, compose} from 'redux'
 import {rootReducer, RootState} from './reducer'
 

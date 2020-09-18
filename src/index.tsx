@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-// import {BrowserRouter, Switch} from 'react-router-dom'
+// import {HashRouter, Switch} from 'react-router-dom'
 import store from './store'
 import Entry from './entry'
 
@@ -10,10 +10,6 @@ import './reset.scss'
 import 'antd/dist/antd.less'
 import './theme.less'
 import './index.scss'
-/*
-import {renderRoutes} from './routers'
-import {routesConfig} from './routers/routerConfig'
-*/
 import '../mock'
 import './i18n'
 

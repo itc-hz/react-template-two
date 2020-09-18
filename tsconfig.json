@@ -38,8 +38,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@routes/*": [
-        "src/routes/*"
+      "@routers/*": [
+        "src/routers/*"
       ],
       "@store/*": [
         "src/store/*"

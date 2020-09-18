@@ -1,67 +1,42 @@
-// import React from 'react'
-import App from '@src/entry/App'
+import React from 'react'
 import CommonLayout from '@common/layout'
-import Home from '@src/pages/home'
-
-export interface RouteConfigDeclaration {
-    /**
-     * 当前路由路径
-     */
-    path: string
-    /**
-     * 当前路由名称
-     */
-    name?: string
-    /**
-     * 是否严格匹配路由
-     */
-    exact?: boolean
-    /**
-     * 是否需要路由鉴权
-     */
-    isProtected?: boolean
-    /**
-     * 是否需要路由重定向
-     */
-    isRedirect?: boolean
-    /**
-     * 是否需要动态加载路由
-     */
-    isDynamic?: boolean
-    /**
-     * 动态加载路由时的提示文案
-     */
-    loadingFallback?: string
-    /**
-     * 路由组件
-     */
-    component: any
-    /**
-     * 子路由
-     */
-    routes?: RouteConfigDeclaration[],
-    /**
-     * 是否是模板页
-     */
-    isLayout?: boolean
-}
+import RouteGo from '@common/routeGo'
+import {RouteConfigDeclaration} from '@src/pageModel/common'
 
 export const routesConfig: RouteConfigDeclaration[] = [
     {
         path: '/',
-        name: 'root',
-        component: App,
-        routes: [
+        component: CommonLayout,
+        hidden: true,
+        children: [
             {
-                path: '/home',
-                component: CommonLayout,
-                isLayout: true,
-                routes: [
+                path: '/home/index',
+                key: '1',
+                exact: true,
+                name: '我的首页',
+                isDynamic: true,
+                component: React.lazy(() => import('@src/pages/home'))
+            },
+            {
+                path: '/audit',
+                isRedirect: true,
+                component: RouteGo,
+                name: '审核管理',
+                key: '4',
+                children: [
                     {
-                        path: '/home/index',
+                        path: '/audit/file',
                         exact: true,
-                        isDynamic: false,
-                        component: Home
+                        name: '文件审核',
+                        isDynamic: true,
+                        component: React.lazy(() => import('@src/pages/audit/file'))
+                    },
+                    {
+                        path: '/audit/media',
+                        exact: true,
+                        isDynamic: true,
+                        name: '资源审核',
+                        component: React.lazy(() => import('@src/pages/audit/source'))
                     }
                 ]
             }

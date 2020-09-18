@@ -1,0 +1,92 @@
+@import "src/assets/css/variable";
+.preview-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, .2);
+  overflow: hidden;
+
+  .preview-img {
+    height: 100%;
+
+    & > :global(.ant-spin-container) {
+      height: 100%;
+    }
+  }
+
+  img, video, audio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+    border-radius: 10px;
+    z-index: 100;
+  }
+  video {
+    min-width: 600px;
+    min-height: 360px;
+    object-fit: fill;
+  }
+  audio {
+    min-width: 450px;
+  }
+  .doc-wrap {
+    user-select: none;
+    width: 100%;
+    :global {
+      .react-pdf__Page__canvas {
+        width: auto !important;
+        height: 70vh !important;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 10vh auto;
+      }
+      .react-pdf__message--error {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+  .doc-footer {
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    .doc-page {
+      width: 125px;
+      height: 45px;
+      background: rgba(123,138,145, .1);
+      border: 1px solid rgb(255,255,255);
+      border-radius: 30px;
+      text-align: center;
+      line-height: 45px;
+      font-size: $nl-font-size;
+      color: #fff;
+      user-select: none;
+
+      &:hover {
+        background-color: #fff;
+        color: #000;
+      }
+      &.disabled {
+        background-color: #eeee;
+        color: rgba(165,162,162, .61);
+        cursor: no-drop;
+      }
+      &:last-child {
+        margin-left: 25px;
+      }
+    }
+  }
+}

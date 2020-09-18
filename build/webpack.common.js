@@ -7,7 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 
 // console.log(paths.publicUrlOrPath.slice(0, -1))
 module.exports = {
-    entry: './src/index.tsx',
+    entry: ['react-hot-loader/patch', './src/index.tsx'],
     module: {
         rules: [
             {
@@ -93,22 +93,26 @@ module.exports = {
             },
             {
                 test: /\.(tsx|ts)$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                }
-            },
-            {
-                test: /\.(tsx|ts)$/,
                 loader: 'eslint-loader',
                 enforce: 'pre',
                 include: [path.resolve(__dirname, '../src')],
                 options: {}
+            },
+            {
+                test: /\.(tsx|ts)$/,
+                exclude: [/(node_modules)/, path.resolve(__dirname, '../mock')],
+                // include: path.resolve(__dirname, '../src'),
+                use: {
+                    loader: 'babel-loader',
+                }
             }
         ]
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.json', '.less', '.scss', '.css'],
+        alias: {
+            'react-dom': '@hot-loader/react-dom',
+        },
         plugins: [
             new TsconfigPathsPlugin({
                 configFile: './tsconfig.json'
@@ -137,13 +141,23 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
+                // 打包业务中公共代码
+                common: {
+                    name: 'common',
+                    chunks: 'initial',
+                    minSize: 1,
+                    priority: 0,
+                    minChunks: 2
+                },
+                // 打包第三方库的文件
                 vendor: {
-                    test: /[\\/]node_modules[\\/](react|react-dom|moment)[\\/]/,
+                    test: /[\\/]node_modules[\\/](react|react-dom|moment|react-pdf|antd|axios|braft-editor)[\\/]/,
                     name: 'vendor',
                     chunks: 'all'
                 }
             }
-        }
+        },
+        runtimeChunk: {name: 'manifest'}
     }
 }
 console.log(process.env.NODE_ENV)

@@ -1,0 +1,35 @@
+.process-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .process-item {
+    width: 100%;
+    margin-bottom: 8px;
+    .audit-item-line {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      background: rgba(154, 164, 168, 1);
+      color: #fff;
+      .process-audit-name {
+        position: absolute;
+        right: 55px;
+      }
+      img {
+        position: absolute;
+        right: 15px;
+      }
+      &.pass {
+        background: rgba(6, 180, 255, 1);
+      }
+      &.unpass {
+        background: rgba(248, 76, 96, 1);
+      }
+    }
+    .audit-item-desc {
+      background: rgba(239, 243, 245, 1);
+      padding: 10px 15px;
+    }
+  }
+}

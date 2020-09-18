@@ -4,7 +4,7 @@ const common = require('./webpack.common')
 const path = require('path')
 // const webpack = require('webpack')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -31,15 +31,16 @@ const prod = merge(common, {
                 }
             ]
         }),
-        new BundleAnalyzerPlugin({
+       /* new BundleAnalyzerPlugin({
             analyzerPort: 'auto'
-        })
+        })*/
     ],
     optimization: {
+        minimize: true,
         minimizer: [
-            new UglifyJsPlugin({
+            new TerserPlugin({
                 parallel: true,
-                uglifyOptions: {
+                terserOptions: {
                     warnings: false,
                     compress: {
                         drop_debugger: true,

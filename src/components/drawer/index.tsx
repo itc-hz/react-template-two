@@ -32,9 +32,9 @@ const Drawer: React.FC<IDrawer> = ({show, loading, name, canClickMask, children,
                             <main className={styles.drawerContentMain}>
                                 {children}
                             </main>
-                            <footer className={styles.drawerContentFooter}>
+                            {footer && <footer className={styles.drawerContentFooter}>
                                 {footer}
-                            </footer>
+                            </footer>}
                         </Spin>
                     </div>
                 </CSSTransition>

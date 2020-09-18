@@ -1,8 +1,7 @@
 import React from 'react'
-import {Route, Redirect, Switch, HashRouter} from 'react-router-dom'
-import {RouteConfigDeclaration} from './routerConfig'
-import Home from '@src/pages/home'
-import Layout from '@common/layout'
+import {Skeleton} from 'antd'
+import {Route} from 'react-router-dom'
+import {RouteConfigDeclaration} from '@src/pageModel/common'
 
 export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps: any = {}) {
     return routesConfig.map((item) => {
@@ -11,10 +10,9 @@ export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps:
             exact,
             isDynamic,
             // isProtected,
-            component: Component,
-            routes = [],
-            loadingFallback,
-            isLayout = false
+            children = [],
+            loadingFallback
+            // isRedirect
         } = item
 
         return (
@@ -26,40 +24,19 @@ export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps:
                     /* if (isProtected && !localStorage.getItem('token')) {
                          return <Redirect key={'login-redirect'} to={'/login'} />;
                      } */
-                    if (isLayout) {
-                        return <Redirect key={path} to={routes[0].path} />
-                    }
+                    /* if (isRedirect) {
+                          return <Redirect key={path} to={'/login'}/>
+                      } */
                     if (isDynamic) {
                         return (
-                            <React.Suspense fallback={loadingFallback || '正在加载中...'}>
-                                <Component {...props} {...extraProps} routes={routes}/>
+                            <React.Suspense fallback={loadingFallback || <Skeleton active/>}>
+                                <item.component {...props} {...extraProps} routes={children}/>
                             </React.Suspense>
                         )
                     }
-                    return <Component {...props} {...extraProps} routes={routes}/>
+                    return <item.component {...props} {...extraProps} routes={children}/>
                 }}
             />
         )
     })
-}
-
-export function OtherRouterMap() {
-    return (
-        <HashRouter>
-            <Switch>
-                <Route exact path={'/'} render={() => {
-                    return <Redirect to={'/home/index'} push/>
-                }}/>
-                <Route path='/' component={Layout} />
-            </Switch>
-        </HashRouter>
-    )
-}
-
-export function RouterMap() {
-    return (
-        <Switch>
-            <Route exact path='/home/index' component={Home} />
-        </Switch>
-    )
 }

@@ -1,0 +1,116 @@
+@import "src/assets/css/variable";
+
+.select-person-wrap {
+  display: flex;
+
+  .select-person-search {
+    padding: 24px 0;
+    flex: 1;
+    border-right: 1px solid rgba(221, 220, 218, 1);
+
+    .search {
+      padding: 0 24px;
+    }
+
+    .tree {
+      padding-top: 24px;
+
+      .custom-tree {
+        :global {
+          .ant-tree-treenode {
+            width: 100%;
+            padding: 5px 0 5px 10px;
+            border-bottom: 1px solid rgba(210, 217, 219, 1);
+          }
+
+          .ant-tree-treenode-motion {
+            width: 100%;
+            border-bottom: 1px solid rgba(210, 217, 219, 1);
+          }
+        }
+      }
+    }
+  }
+
+  .select-person-selected {
+    position: relative;
+    padding: 24px;
+    flex: 1;
+
+    .has-selected-detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & > a {
+        font-size: $nl-font-size;
+      }
+    }
+
+    .has-selected-list {
+      padding-top: 24px;
+      margin: 0;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+
+      .has-selected-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 24px;
+
+        .item-head {
+          flex: 1;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+
+          span {
+            margin-left: 12px;
+            font-weight: 400;
+          }
+        }
+
+        & > a {
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          line-height: 24px;
+          border-radius: 50%;
+          color: #fff;
+          background: rgba(113, 126, 132, 1);
+        }
+      }
+    }
+
+    .footer {
+      float: right;
+    }
+  }
+}
+
+:global(.fade-enter) {
+  padding-left: 30%;
+  opacity: 0;
+}
+
+:global(.fade-enter-active) {
+  opacity: 1;
+  padding-left: 0;
+  transition: 500ms;
+}
+
+:global(.fade-exit) {
+  opacity: 1;
+  padding-left: 0;
+}
+
+:global(.fade-exit-active) {
+  opacity: 0;
+  padding-left: 30%;
+  transition: 500ms;
+}

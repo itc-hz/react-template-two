@@ -1,13 +1,8 @@
 @import "../../assets/css/variable.scss";
 @import "../../assets/css/mixins.scss";
 
-.cards {
-  padding: 35px 30px;
-  background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(210, 217, 219, 1);
-  border-radius: 6px;
-
-  :global(.card-header) {
+:global {
+  .card-header {
     position: relative;
     margin-bottom: 0;
     padding-left: 16px;
@@ -15,7 +10,7 @@
     font-weight: 400;
     line-height: 20px;
 
-    :global(.card-header-more) {
+    .card-header-more {
       position: absolute;
       right: 0;
       color: $active-bg;
@@ -34,6 +29,13 @@
       background: $active-bg;
     }
   }
+}
+
+.cards {
+  padding: 35px 30px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(210, 217, 219, 1);
+  border-radius: 6px;
 
   .card-content {
     padding: 30px 0 23px;
@@ -51,7 +53,7 @@
         flex: 1;
 
         &:nth-child(1) {
-          background: $active-bg;
+          background: #FFAE36;
           box-shadow: 0 5px 20px 0 rgba(255, 174, 54, 0.42);
         }
 

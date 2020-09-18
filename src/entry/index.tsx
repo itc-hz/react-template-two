@@ -1,3 +1,5 @@
+/* eslint-disable */
+import {hot} from 'react-hot-loader/root'
 import {useTranslation} from 'react-i18next'
 import {useDispatch, useSelector} from 'react-redux'
 import {RootState} from '@src/store'
@@ -98,4 +100,4 @@ const Entry = () => {
     )
 }
 
-export default Entry
+export default hot(Entry)

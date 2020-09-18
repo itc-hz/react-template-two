@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux'
-import {app} from './models'
+import {user, app} from './models'
 
 export const rootReducer = combineReducers({
-    app
+    app,
+    user
 })
-
+/* eslint-disable */
 export declare type RootState = ReturnType<typeof rootReducer>

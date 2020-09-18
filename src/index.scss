@@ -1,4 +1,5 @@
 @import "./assets/css/variable";
+@import "./assets/css/mixins.scss";
 
 html, body {
   width: 100%;
@@ -14,6 +15,7 @@ html, body {
 
     .app-wrap {
       height: 100%;
+
       .ant-spin-container {
         height: 100%;
       }
@@ -30,15 +32,23 @@ html, body {
 
     .lang-change-wrap {
       position: fixed;
-      bottom: 30px;
-      left: 30px;
+      bottom: 60px;
+      left: 60px;
       z-index: 999;
 
       & + .lang-change-wrap {
-        left: 150px;
-        bottom: 35px;
+        left: 120px;
       }
     }
+  }
+
+  .bf-dropdown ul {
+    box-sizing: content-box;
+  }
+
+  .idvs-question-card {
+    height: calc(100vh - 124px);
+    overflow-y: auto;
   }
 }
 
@@ -77,6 +87,16 @@ html, body {
   &:hover, &:focus {
     background: $grey-bg-opacity;
     border-color: $grey-bg-opacity;
+  }
+}
+
+:global(.ant-btn.ant-btn-blue) {
+  background: $blue-bg;
+  border-color: $blue-bg;
+
+  &:hover, &:focus {
+    background: $blue-bg-opacity;
+    border-color: $blue-bg-opacity;
   }
 }
 
@@ -122,6 +142,32 @@ html, body {
     }
   }
 
+  .ant-checkbox {
+    .ant-checkbox-inner {
+      border-radius: 2px;
+    }
+  }
+
+  .ant-select.ant-select-single {
+    &.no-radius {
+      .ant-select-selector {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .idvs-no-padding {
+    .ant-tooltip-inner {
+      padding: 0;
+    }
+  }
+
+  .ant-table-row-expand-icon {
+    &.ant-table-row-expand-icon-collapsed, &.ant-table-row-expand-icon-expanded {
+      border-radius: 2px;
+      top: 4px;
+    }
+  }
 }
 
 :global(.ant-dropdown) {
@@ -131,5 +177,39 @@ html, body {
 :global(.show-number-step) {
   & > :global(.ant-input-number-handler-wrap) {
     opacity: 1;
+  }
+}
+
+:global(.group-list) {
+  margin: 0;
+  padding: 0;
+  :global(.group-item) {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    padding: 0 25px;
+    cursor: pointer;
+
+    &:hover {
+      background: $active-bg-low-opacity;
+      color: #fff;
+    }
+
+    &:global(.active) {
+      background: $active-bg;
+      color: #fff;
+    }
+
+    :global(.group-item-name) {
+      flex: 1;
+      @include ellipsis;
+    }
+    :global(.group-item-operation) {
+      width: 70px;
+      text-align: right;
+      & > img:first-child {
+        margin-right: 7px;
+      }
+    }
   }
 }

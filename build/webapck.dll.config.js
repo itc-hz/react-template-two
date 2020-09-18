@@ -5,7 +5,7 @@ module.exports = {
     mode: 'development',
     context: path.resolve(__dirname, "../"),
     entry: {
-        dllLibs: ['react', 'react-dom', 'lodash', 'antd', 'react-redux', 'redux', 'history', 'react-router-dom', 'axios']
+        dllLibs: ['react', 'react-dom', 'antd', 'react-redux', 'redux', 'history', 'react-router-dom', 'axios']
     },
     output: {
         path: path.resolve('dist'),
